@@ -1,0 +1,10 @@
+.item{
+    color: red;
+}
+.item img{
+    width: 3rem;
+    height: 3rem;
+}
+.likeColor{
+    color: yellow;
+}

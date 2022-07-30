@@ -1,0 +1,30 @@
+.itemWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1rem;
+    border: 2px solid darkblue;
+    width: 80%;
+    height: 3.5rem;
+
+}
+
+.idWrapper{
+    font-size: large;
+    font-weight: bold;
+
+}
+
+.checkbox{
+
+}
+
+.itemText{
+
+    width: 70%;
+    margin-left: 1rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+

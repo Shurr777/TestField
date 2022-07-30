@@ -1,0 +1,28 @@
+.pageOverlay {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.itemBlockOverlay {
+    display: flex;
+    flex-direction: column;
+    background-color: lightskyblue;
+    width: 22rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.item {
+    display: flex;
+    font-size: 18px;
+}
+
+.itemName {
+    padding-top: 1rem;
+}
+
+.itemValue {
+    margin-left: 0.5rem;
+    padding-top: 1rem;
+}

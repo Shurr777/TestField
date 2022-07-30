@@ -1,0 +1,63 @@
+.overlay {
+    margin: 0;
+    padding: 0;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    color: darkblue;
+}
+
+.photoBlock img {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    height: 10rem;
+}
+
+.descriptionBlock {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.fullNamePhoto {
+    margin-top: 1rem;
+}
+
+.aboutBlock {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ContactBlock {
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+}
+
+.contactsOverlay {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactItemsBlock {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    width: 300px;
+}
+
+.contactItem {
+    display: grid;
+    justify-items: start;
+}

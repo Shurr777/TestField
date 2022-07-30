@@ -1,0 +1,29 @@
+.header {
+    grid-area: h;
+    background-color: deepskyblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imageContainer{
+    padding-left: 1rem;
+}
+
+.header img{
+    width: 5rem;
+    height: 5rem;
+}
+.loginBlock{
+    width: 10rem;
+    margin: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: cornflowerblue;
+    justify-self: end;
+}
+.loginBlock a{
+    color: yellow;
+    text-decoration: none;
+}

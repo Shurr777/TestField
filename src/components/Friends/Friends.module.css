@@ -1,0 +1,11 @@
+.userPhoto{
+    width: 3rem;
+    height: 3rem;
+}
+
+.paginatorContainer{
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,14 @@
+
+.header {
+    display: flex;
+    justify-content: center;
+    color: darkblue;
+    background-color: #fff;
+    font-size: 1.5rem;
+    max-width: 100%;
+    padding: 1.2rem  1rem 0;
+}
+.header h2{
+    min-width: 2rem;
+    margin: 0 auto;
+}
