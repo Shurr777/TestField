@@ -1,14 +1,24 @@
 .nav {
-    grid-area: n;
-    background-color: #123456;
-    padding: 1rem;
+    padding: 2rem;
+    height: auto;
 }
 
 .item a{
+    box-sizing: content-box;
     color: whitesmoke;
     text-decoration: none;
+    display: block;
+    padding: 1rem;
+}
+
+.item a:hover {
+    color: blue;
 }
 
 .item a.activeLink{
     color: yellow;
+    min-width: 85%;
+    background: #1a6eaa;
+    border-radius: 5px;
+
 }

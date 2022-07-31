@@ -93,3 +93,12 @@ export const CurrencyExchangeAPI = {
         return exchangeInstance.get().then(response => response.data)
     },
 };
+
+
+
+//NASA_API.... надо разобраться ..............................
+/*
+const NasaInstance = axios.create({
+    baseURL: "https://api.nasa.gov/planetary/",
+    headers: {"API-KEY": "D1N4faa4D0KRosho7wQFngAMpl0tbA1x9IcVp3Ah"}
+});*/

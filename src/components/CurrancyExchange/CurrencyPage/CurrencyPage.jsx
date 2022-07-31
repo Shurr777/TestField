@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Page} from './CurrencyPageStyle'
+import {P, Page} from './CurrencyPageStyle'
 import {connect} from "react-redux";
 import {getCourses, getEUR, getUAH, getUSD} from "../../../redux/selectors/exchangeSelectors";
 import {setCourseThunk} from "../../../redux/exchangeReducer";
@@ -33,6 +33,8 @@ const CurrencyPageContainer = ({
     return (
         <Page>
             <Header updateData={updateData} USD={usd} EUR={euro}/>
+            <P>Конвертер работает в обоих направлениях</P>
+            <P>Сначала выбираем валюту, потом вводим цифры</P>
             <BodyBlockContainer courses={courses} staticData={staticData}/>
             <Footer/>
         </Page>

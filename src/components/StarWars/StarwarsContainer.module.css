@@ -1,15 +1,31 @@
 .overlay{
+
 }
 
 .headerContainer{
-    margin: 1rem;
+    margin: 2rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
 .headerItem{
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     background-color: powderblue;
-;
+}
+
+.item a{
+    box-sizing: content-box;
+    color: whitesmoke;
+    text-decoration: none;
+
+
+}
+
+.activeLink {
+    padding: 0.5rem 1rem;
+    color: whitesmoke;
+    background-color: #1a6eaa;
+    border-radius: 5px;
 }

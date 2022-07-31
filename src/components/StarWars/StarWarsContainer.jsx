@@ -21,11 +21,11 @@ const StarWars = ({prefix, data, pages, getResourcesThunkCreator, getPageThunkCr
             <div className={s.headerContainer}>
                 {Object.entries(data).map((k) => {
                     return (
-                        <div key={k[1]}>
+                        <div key={k[1]} className={s.item}>
                             <NavLink to={"/star_wars/" + k[0]}
-                                     className={(navData) => (navData.isActive ?
+                                     className={(nav) => (nav.isActive ?
                                          `${s.activeLink}` :
-                                         'none')}>{k[0]}
+                                         'none')}>{k[0].toUpperCase()}
                             </NavLink>
                         </div>
                     )
