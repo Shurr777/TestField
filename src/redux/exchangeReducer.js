@@ -1,4 +1,4 @@
-import {CurrencyExchangeAPI} from "../api/api";
+import {CurrencyExchangeAPI} from "../api/exchangeApi";
 
 
 const SET_CURRENT_DATA = 'SET_CURRENT_DATA';

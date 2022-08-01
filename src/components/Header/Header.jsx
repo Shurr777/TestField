@@ -11,7 +11,7 @@ const Header = (props) => {
                 <div className={c.imageContainer}>
                     <img src={logo} alt="Logo"/>
                 </div>
-                <h2>Тут верстки нет!!! тестируется ReactJS</h2>
+                <h2>Все это безобразие находится в процессе разработки!!</h2>
                 <div className={c.loginBlock}>
                     {props.isAuth
                         ? <div className={c.logName}>{props.login} -

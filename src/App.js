@@ -1,24 +1,22 @@
 import React, {Suspense, useEffect} from "react";
 import Navbar from "./components/Navbar/Navbar";
-import {Routes, Route, BrowserRouter} from "react-router-dom";
+import {Routes, Route, BrowserRouter, Navigate} from "react-router-dom";
+import {connect, Provider} from "react-redux";
 import Preloader from "./components/Preloader/Preloader";
 import News from "./components/News/News";
 import TodoList from "./components/TodoList/TodoList";
 import Login from "./components/Login/login";
 import {compose} from "redux";
-import {connect} from "react-redux";
 import {initializeApp} from "./redux/appReducer";
 import store from "./redux/redux-store";
-import {Provider} from "react-redux";
 import DocumentTitle from 'react-document-title'
 import HeaderContainer from "./components/Header/HeaderContainer";
-import {Navigate} from "react-router-dom";
 import Aside from "./components/Aside/Aside";
 import CurrencyPageContainer from "./components/CurrancyExchange/CurrencyPage/CurrencyPage";
 import Page404 from "./components/commons/Err/Page404";
 import {AppWrapper, Overlay} from "./AppStyle";
 
-const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import( "./components/Profile/ProfileInfo/ProfileContainer"));
 const FriendsContainer = React.lazy(() => import("./components/Friends/FriendsContainer"));
 const StarWarsContainer = React.lazy(() => import("./components/StarWars/StarWarsContainer"));

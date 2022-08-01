@@ -62,40 +62,6 @@ export const securityAPI = {
     }
 };
 
-
-//STARWAR API.............................................
-const starwarInstance = axios.create({
-    baseURL: 'https://swapi.dev/api/'
-});
-
-export const starwarAPI = {
-    getResources() {
-        return starwarInstance.get().then(response => response.data)
-    },
-    getPages(link){
-        console.log('api link', link)
-        return starwarInstance.get(`${link}/`).then(response => response.data);
-    }
-};
-
-
-//CURRENCY_EXCHANGE API....................................
-const exchangeInstance = axios.create({
-    withCredentials: false,
-    baseURL: "https://cdn.cur.su/api/nbu.json"
-});
-
-export const CurrencyExchangeAPI = {
-    /* getCountries() {
-         return apiInstance.get().then(response => response.data)
-     },*/
-    getCourse() {
-        return exchangeInstance.get().then(response => response.data)
-    },
-};
-
-
-
 //NASA_API.... надо разобраться ..............................
 /*
 const NasaInstance = axios.create({

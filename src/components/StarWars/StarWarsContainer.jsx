@@ -1,20 +1,25 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import {getPageThunkCreator, getResourcesThunkCreator} from "../../redux/starwarReducer";
+import {getNewPageThunkCreator, getPageThunkCreator, getResourcesThunkCreator} from "../../redux/starwarReducer";
 import s from './StarwarsContainer.module.css'
 import {NavLink} from "react-router-dom";
 import {Routes, Route} from "react-router-dom";
 import SW_Page from "./Pages/SW_Page/SW_Page";
 
-
-const StarWars = ({prefix, data, pages, getResourcesThunkCreator, getPageThunkCreator}) => {
+/**
+ * @param resources - object stores current, next and previous page urls and array of current page objects
+ * @param data
+ * @param pages
+ * @param getResourcesThunkCreator
+ * @param getPageThunkCreator
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const StarWars = ({resources, data, isLoading, getResourcesThunkCreator, getPageThunkCreator, getNewPageThunkCreator}) => {
 
     useEffect(() => {
         getResourcesThunkCreator()
     }, []);
-
-    console.log('render', data);
-    console.log('pages', pages);
 
     return (
         <div className={s.overlay}>
@@ -32,14 +37,16 @@ const StarWars = ({prefix, data, pages, getResourcesThunkCreator, getPageThunkCr
                 })}
             </div>
             <Routes>
-                {Object.entries(data).map((k) => {
+                {Object.entries(data).map((key) => {
                     return (
-                        <Route path={"/" + k[0]}
-                               key={k[1]}
+                        <Route path={"/" + key[0]}
+                               key={key[1]}
                                element={<SW_Page
-                                   lnk={k[0]}
+                                   lnk={key[0]}
                                    getPageThunkCreator={getPageThunkCreator}
-                                   pages={pages}
+                                   getNewPageThunkCreator={getNewPageThunkCreator}
+                                   resources={resources}
+                                   isLoading={isLoading}
                                />}
                         />
                     )
@@ -49,20 +56,29 @@ const StarWars = ({prefix, data, pages, getResourcesThunkCreator, getPageThunkCr
     );
 };
 
-
-
+/**
+ *
+ * @param state  - state from  starwarReducer.js
+ * @returns    - variables that fall into props
+ */
 let mapStateToProps = (state) => {
     return {
         data: state.starwar.startData,
-        pages: state.starwar.pagesData,
+       // pages: state.starwar.pagesData,
+        resources: state.starwar.resources,
+        isLoading: state.starwar.isLoading
     }
 };
-
+/**
+ *
+ * @type  -  HOC for transferring data from the reducer
+ */
 const StarWarsContainer = connect(mapStateToProps,
     {
         getPageThunkCreator,
-        getResourcesThunkCreator
+        getResourcesThunkCreator,
+        getNewPageThunkCreator
     }
-)(StarWars)
+)(StarWars);
 
 export default StarWarsContainer;
