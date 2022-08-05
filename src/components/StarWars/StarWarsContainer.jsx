@@ -15,43 +15,52 @@ import SW_Page from "./Pages/SW_Page/SW_Page";
  * @returns {JSX.Element}
  * @constructor
  */
-const StarWars = ({resources, data, isLoading, getResourcesThunkCreator, getPageThunkCreator, getNewPageThunkCreator}) => {
+const StarWars = ({
+                      resources,
+                      data,
+                      isLoading,
+                      getResourcesThunkCreator,
+                      getPageThunkCreator,
+                      getNewPageThunkCreator
+                  }) => {
 
     useEffect(() => {
         getResourcesThunkCreator()
-    }, []);
+    }, [data]);
 
     return (
-        <div className={s.overlay}>
-            <div className={s.headerContainer}>
-                {Object.entries(data).map((k) => {
-                    return (
-                        <div key={k[1]} className={s.item}>
-                            <NavLink to={"/star_wars/" + k[0]}
-                                     className={(nav) => (nav.isActive ?
-                                         `${s.activeLink}` :
-                                         'none')}>{k[0].toUpperCase()}
-                            </NavLink>
-                        </div>
-                    )
-                })}
+        <div>
+            <div className={s.overlay}>
+                <div className={s.headerContainer}>
+                    {Object.entries(data).map((k) => {
+                        return (
+                            <div key={k[1]} className={s.item}>
+                                <NavLink to={"/star_wars/" + k[0]}
+                                         className={(nav) => (nav.isActive ?
+                                             `${s.activeLink}` :
+                                             'none')}>{k[0].toUpperCase()}
+                                </NavLink>
+                            </div>
+                        )
+                    })}
+                </div>
+                <Routes>
+                    {Object.entries(data).map((key) => {
+                        return (
+                            <Route path={"/" + key[0]}
+                                   key={key[1]}
+                                   element={<SW_Page
+                                       lnk={key[0]}
+                                       getPageThunkCreator={getPageThunkCreator}
+                                       getNewPageThunkCreator={getNewPageThunkCreator}
+                                       resources={resources}
+                                       isLoading={isLoading}
+                                   />}
+                            />
+                        )
+                    })}
+                </Routes>
             </div>
-            <Routes>
-                {Object.entries(data).map((key) => {
-                    return (
-                        <Route path={"/" + key[0]}
-                               key={key[1]}
-                               element={<SW_Page
-                                   lnk={key[0]}
-                                   getPageThunkCreator={getPageThunkCreator}
-                                   getNewPageThunkCreator={getNewPageThunkCreator}
-                                   resources={resources}
-                                   isLoading={isLoading}
-                               />}
-                        />
-                    )
-                })}
-            </Routes>
         </div>
     );
 };
@@ -59,12 +68,11 @@ const StarWars = ({resources, data, isLoading, getResourcesThunkCreator, getPage
 /**
  *
  * @param state  - state from  starwarReducer.js
- * @returns    - variables that fall into props
+ * @returns  resources, isLoading  - variables that fall into props
  */
 let mapStateToProps = (state) => {
     return {
         data: state.starwar.startData,
-       // pages: state.starwar.pagesData,
         resources: state.starwar.resources,
         isLoading: state.starwar.isLoading
     }

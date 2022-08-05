@@ -10,6 +10,16 @@ const Navbar = () => {
         <Overlay>
             <nav className={s.nav}>
                 <div className={s.item}>
+                    <NavLink to="/currency_exchange"
+                             className={(navData) => (navData.isActive ? `${s.activeLink}` : 'none')}>Currancy
+                        Exchange</NavLink>
+                </div>
+                <div className={s.item}>
+                    <NavLink to="/star_wars/*"
+                             className={(navData) => (navData.isActive ? `${s.activeLink}` : 'none')}>Star
+                        Wars</NavLink>
+                </div>
+                <div className={s.item}>
                     <NavLink to="/profile"
                              className={(navData) => (navData.isActive ? `${s.activeLink}` : 'none')}>Profile</NavLink>
                 </div>
@@ -29,16 +39,6 @@ const Navbar = () => {
                     <NavLink to="/todo_list"
                              className={(navData) => (navData.isActive ? `${s.activeLink}` : 'none')}>Todo
                         List</NavLink>
-                </div>
-                <div className={s.item}>
-                    <NavLink to="/star_wars/*"
-                             className={(navData) => (navData.isActive ? `${s.activeLink}` : 'none')}>Star
-                        Wars</NavLink>
-                </div>
-                <div className={s.item}>
-                    <NavLink to="/currency_exchange"
-                             className={(navData) => (navData.isActive ? `${s.activeLink}` : 'none')}>Currancy
-                        Exchange</NavLink>
                 </div>
             </nav>
         </Overlay>

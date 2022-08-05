@@ -1,14 +1,8 @@
 import React, {useEffect} from 'react';
 import s from './SW_Page.module.css'
 import Preloader from "../../../Preloader/Preloader";
-import {getNewPageThunkCreator} from "../../../../redux/starwarReducer";
-
 
 const SW_Page = ({resources, lnk, isLoading, getPageThunkCreator, getNewPageThunkCreator}) => {
-
-    console.log('link', lnk);
-    console.log('resources', resources);
-    console.log('pages from res', resources.results)
 
     useEffect(() => {
         getPageThunkCreator(lnk)
@@ -32,13 +26,13 @@ const SW_Page = ({resources, lnk, isLoading, getPageThunkCreator, getNewPageThun
     return (
         <div>
             {isLoading ? <Preloader/> :
-                <div>
-                    <div>
-                        <button
+                <div >
+                    <div className={s.paginationMenu}>
+                        <button className={resources.previous ? `${s.active}` : `${s.passive}`}
                             onClick={() => {onPreviousClick(resources.previous)}}>
                             Previous
                         </button>
-                        <button
+                        <button className={resources.next ? `${s.active}` : `${s.passive}`}
                             onClick={() => {onNextClick(resources.next)}}>
                             Next
                         </button>

@@ -7,7 +7,7 @@ import News from "./components/News/News";
 import TodoList from "./components/TodoList/TodoList";
 import Login from "./components/Login/login";
 import {compose} from "redux";
-import {initializeApp} from "./redux/appReducer";
+import {initializeApp} from "./redux/appReducer.tsx";
 import store from "./redux/redux-store";
 import DocumentTitle from 'react-document-title'
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -26,7 +26,7 @@ const App = (props) => {
     useEffect(() => {
         props.initializeApp()
 
-    }, []);
+    }, [props.init]);
 
     if (!props.init) return <Preloader/>;
 

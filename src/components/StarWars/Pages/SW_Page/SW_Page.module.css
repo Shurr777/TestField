@@ -26,9 +26,21 @@
     margin-left: 0.5rem;
     padding-top: 1rem;
 }
-.active{
-    border: 1px solid red;
+
+.paginationMenu {
+    margin: 1rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
 }
-.passive{
+
+.active {
+    width: 5rem;
+    cursor: pointer;
+}
+
+.passive {
+    width: 5rem;
     opacity: 0.5;
+    cursor: pointer;
 }

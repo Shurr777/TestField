@@ -15,7 +15,12 @@ let initialSatate = {
     isLoading: false
 };
 
-
+/**
+ *
+ * @param state
+ * @param action
+ * @returns {{isLoading: boolean, startData: {}, resources: {results: *[]}, pagesData: {}}|{isLoading, startData: {}, resources: {results: []}, pagesData: {}}|{isLoading: boolean, startData, resources: {results: []}, pagesData: {}}|{isLoading: boolean, startData: {}, resources, pagesData: {}}|{isLoading: boolean, startData: {}, resources: {results: []}, pagesData}}
+ */
 const starwarReducer = (state = initialSatate, action) => {
     switch (action.type) {
         case SET_RESOURCES_DATA:
@@ -38,7 +43,6 @@ const starwarReducer = (state = initialSatate, action) => {
                 ...state,
                 resources: {...action.payload},
                 ...state.resources.results = [...action.payload.results]
-
             };
         case SET_RESOURCES:
             return {
@@ -49,17 +53,22 @@ const starwarReducer = (state = initialSatate, action) => {
             return state;
     }
 };
-
-//Action Creators
+/**
+ * ACTION CREATORS
+ * @param data
+ * @returns {{payload: object, type: string}}
+ */
 const setStartData = (data) => ({type: SET_RESOURCES_DATA, payload: data});
-
 const setPageData = (data) => ({type: SET_PAGE_DATA, payload: data});
 const setResources = (res) => ({type: SET_RESOURCES, payload: res});
 const setloading = (status) => ({type: SET_LOADING, payload: status});
 const setNewPage = (data) => ({type: SET_NEW_PAGE, payload: data});
 
 
-//Thunk Creators
+/**
+ * THUNK CREATORS
+ * @returns {(function(*): Promise<void>)|*}
+ */
 export const getResourcesThunkCreator = () => async (dispatch) => {
     const startData = await starwarAPI.getResources();
     dispatch(setStartData(startData));
@@ -76,7 +85,6 @@ export const getPageThunkCreator = (link) => async (dispatch) => {
 export const getNewPageThunkCreator = (link) => async (dispatch) => {
     dispatch(setloading(true))
     const data = await starwarAPI.getNewPage(link)
-    console.log('data from new page', data)
     dispatch(setNewPage(data))
     dispatch(setloading(false))
 }

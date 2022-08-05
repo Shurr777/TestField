@@ -3,7 +3,8 @@ import style from './TodoList.module.css'
 import TodoContent from "./TodoContent/TodoContent";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
-import {taskReducer} from "../../redux/TaskReducer";
+import {taskReducer} from "../../redux/TaskReducer.tsx";
+
 
 
 const TodoList = () => {

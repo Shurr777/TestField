@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {P, Page} from './CurrencyPageStyle'
 import {connect} from "react-redux";
 import {getCourses, getEUR, getUAH, getUSD} from "../../../redux/selectors/exchangeSelectors";
-import {setCourseThunk} from "../../../redux/exchangeReducer";
+import {setCourseThunk} from "../../../redux/exchangeReducer.tsx";
 import Header from "../Header/Header";
 import BodyBlockContainer from "../Body/BodyBlockContainer";
 import Footer from "../Footer/footer";
