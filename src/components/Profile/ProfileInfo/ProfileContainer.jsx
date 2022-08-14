@@ -5,7 +5,7 @@ import { //import Thunks
     getProfileThunkCreator,
     getStatus, savePhoto, saveProfile,
     updateStatus
-} from "../../../redux/profileReducer";
+} from "../../../redux/profileReducer.tsx";
 import {useParams} from "react-router-dom";
 import Preloader from "../../Preloader/Preloader";
 import {withAuthRedirect} from "../../../hoc/WithAuthResirect";

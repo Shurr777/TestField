@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {connect} from "react-redux";
 import {
     setCurrentPage,
@@ -7,8 +7,10 @@ import {
     getUsersThunkCreator,
     follow,
     unfollow
-} from '../../redux/friendsReducer';
-import Friends from './Friends';
+// @ts-ignore
+} from '../../redux/friendsReducer.tsx';
+// @ts-ignore
+import Friends from './Friends.tsx';
 import Preloader from "../Preloader/Preloader";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/WithAuthResirect";
@@ -18,10 +20,26 @@ import {
     getIsFetching,
     getPageSize,
     getTotalUsersCount
-} from "../../redux/selectors/friendsSelector";
+// @ts-ignore
+} from "../../redux/selectors/friendsSelector.ts";
+import {UserType} from "../../types/types";
+import {AppStateType} from "../../redux/redux-store";
 
+type PropsType = {
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalUsersCount: number
+    followingInProgress: boolean
+    friends: Array<UserType>
 
-class FriendsContainer extends React.Component {
+    follow: ()=> void
+    unfollow: ()=> void
+    setCurrentPage: (page: number)=> void
+    getUsers: (currentPage, pageSize)=> void
+}
+
+class FriendsContainer extends React.Component <PropsType> {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
@@ -51,7 +69,7 @@ class FriendsContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType) => {
     return {
         friends: getFriends(state),
         pageSize: getPageSize(state),

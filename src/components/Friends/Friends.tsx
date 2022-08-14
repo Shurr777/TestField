@@ -1,10 +1,24 @@
-import React from 'react';
-import Paginator from "../commons/Paginator/Paginator";
+import * as React from 'react';
+import {FC} from "react";
 import Friend from "./Friend/Friend";
-import style from './Friends.module.css'
+// @ts-ignore
+import style from "./Friends.module.css"
+// @ts-ignore
+import Paginator from "../commons/Paginator/Paginator.tsx";
+import {UserType} from "../../types/types";
 
+type PropType ={
+    currentPage: number
+    pageSize: number
+    totalUsersCount: number
+    onPageChanged: ()=>void
+    friends: Array<UserType>
+    followingInProgress: boolean
+    follow: ()=> void
+    unfollow: ()=> void
+}
 
-const Friends = (props) => {
+const Friends: FC<PropType> = (props) => {
     return (
         <div>
             <div className={style.paginatorContainer}>

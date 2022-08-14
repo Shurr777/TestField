@@ -1,9 +1,9 @@
-import React from 'react';
-import {addMessageActionCreator} from "../../redux/messageReducer";
+/*import React from 'react';*/
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/WithAuthResirect";
 import {compose} from "redux";
+import {addMessageActionCreator} from "../../redux/messageReducer.tsx";
 
 let mapStateToProps = (state) =>{
     return{

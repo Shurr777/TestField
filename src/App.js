@@ -8,7 +8,7 @@ import TodoList from "./components/TodoList/TodoList";
 import Login from "./components/Login/login";
 import {compose} from "redux";
 import {initializeApp} from "./redux/appReducer.tsx";
-import store from "./redux/redux-store";
+import store from "./redux/redux-store.ts";
 import DocumentTitle from 'react-document-title'
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Aside from "./components/Aside/Aside";
@@ -18,7 +18,7 @@ import {AppWrapper, Overlay} from "./AppStyle";
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import( "./components/Profile/ProfileInfo/ProfileContainer"));
-const FriendsContainer = React.lazy(() => import("./components/Friends/FriendsContainer"));
+const FriendsContainer = React.lazy(() => import("./components/Friends/FriendsContainer.tsx"));
 const StarWarsContainer = React.lazy(() => import("./components/StarWars/StarWarsContainer"));
 
 const App = (props) => {

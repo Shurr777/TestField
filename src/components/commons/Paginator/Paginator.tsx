@@ -1,9 +1,18 @@
+// @ts-ignore
 import React from 'react';
 import {usePagination, DOTS} from "../../../hooks/usePagination";
-import style from './pagination.module.css'
+// @ts-ignore
+import style from "./pagination.module.css"
 
+type Props = {
+    onPageChanged: (page: number)=>void,
+    totalUsersCount: number,
+    siblingCount: number,
+    currentPage: number,
+    pageSize?: number,
+}
 
-const Paginator = props => {
+const Paginator: React.FC<Props> = props => {
     const {
         onPageChanged,
         totalUsersCount,

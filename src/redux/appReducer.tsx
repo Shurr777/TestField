@@ -1,4 +1,4 @@
-//@ts-ignore
+// @ts-ignore
 import {getAuth} from "./authReducer.tsx";
 
 const INITIALIZATION_SUCCESS: string = 'INITIALIZATION_SUCCESS';
@@ -11,7 +11,7 @@ let initialState: InitialStateType = {
     initialization: false
 };
 
-const appReducer = (state = initialState, action): InitialStateType => {
+const appReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case INITIALIZATION_SUCCESS:
             return {
@@ -29,7 +29,7 @@ type InitializationSuccessActionType = {
 
 export const initializationSuccess = ():InitializationSuccessActionType => ({type: INITIALIZATION_SUCCESS});
 
-export const initializeApp = () => (dispatch) => {
+export const initializeApp = () => (dispatch: any) => {
     let promise = dispatch(getAuth());
     promise.then(() => {
         dispatch(initializationSuccess());

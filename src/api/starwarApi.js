@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 const SWAPI_ROOT = 'https://swapi.dev/api/';
-const SWAPI_PEOPLE = 'people';
+/*const SWAPI_PEOPLE = 'people';*/
 
 const starwarInstance = axios.create({
     baseURL: SWAPI_ROOT
